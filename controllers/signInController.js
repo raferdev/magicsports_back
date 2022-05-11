@@ -4,7 +4,6 @@ import "dotenv/config";
 
 import db from "./../database/db.js"
 
-
 async function signIn (req, res) {
     const { email, password } = req.body;
 
