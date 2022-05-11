@@ -11,7 +11,7 @@ export default async function signUpJoiMiddleware(req, res, next) {
   const signUpValidate = signUpScheme.validate(signUpReq, {
     abortEarly: false,
   });
-  if (signUpValidate) {
+  if (signUpValidate.error) {
     return res.status(400).send("Erro de sintaxe. Requisição abortada!");
   }
   next();
