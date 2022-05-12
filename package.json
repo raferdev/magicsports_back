@@ -5,10 +5,10 @@
   "description": "\"e-commerce back-end\"",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
-    "dev": "npx nodemon ./src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon index.js",
+    "start": "node ./index.js"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rafael-f/projeto14-ecommerce-back.git"
@@ -26,6 +26,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.5.0",
     "uuid": "^8.3.2"
   },
