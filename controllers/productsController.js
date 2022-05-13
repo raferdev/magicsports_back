@@ -12,6 +12,8 @@ async function getProducts (req, res) {
             ]
         }).toArray();
 
+        products.forEach(product => delete product._id);
+
         res.send(products).status(200);
     } catch (error) {
         res.sendStatus(500);
