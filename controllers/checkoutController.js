@@ -1,12 +1,10 @@
-import jwt from "jsonwebtoken";
-
 import db from "../database/db.js";
 
 async function checkout (req, res) {
     const user = res.locals.user;
 
      try {
-        const userObject = await db.collection("users").updateOne(
+        await db.collection("users").updateOne(
             { 
                 email: user.email 
             }, 

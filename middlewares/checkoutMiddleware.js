@@ -27,7 +27,7 @@ async function checkoutValidation (req, res, next) {
         return res.sendStatus(400);
     }
 
-    res.status(201).send("deu bom nelson");
+    next();
 }
 
 export default checkoutValidation;
