@@ -1,4 +1,4 @@
-import db from "../database/db";
+import db from "../database/db.js";
 
 async function shoppingCartController(req, res) {
   const email = req.email;

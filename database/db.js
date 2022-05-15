@@ -8,7 +8,7 @@ let db;
 try {
     await mongoClient.connect();
     db = mongoClient.db("magic-sports");
-    console.log(chalk.green("CONECTADO","- database mongo DB"))
+    console.log(chalk.bold.green("CONECTADO","- database mongo DB"))
 } catch(e) {
     console.log(chalk.red("ERRO","- ao tentar conectar a database mongo DB",e))
 }
