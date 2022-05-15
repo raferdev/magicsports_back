@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
-import db from "../database/db";
+
+import db from "../database/db.js";
 
 async function checkout (req, res) {
     const user = res.locals.user;
