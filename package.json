@@ -6,8 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx nodemon index.js"
-  },
+    "dev": "npx nodemon index.js",
+    "start": "node ./index.js"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rafael-f/projeto14-ecommerce-back.git"
