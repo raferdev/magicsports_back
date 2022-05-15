@@ -4,7 +4,7 @@ import "dotenv/config";
 
 import db from "./../database/db.js"
 
-async function signIn (req, res) {
+async function signIn(req, res) {
     const { email, password } = req.body;
 
     try {
@@ -18,11 +18,12 @@ async function signIn (req, res) {
         }
 
         delete user.password;
-        const token = jwt.sign(user, process.env.JWT_SECRET);
+
+        const config = { expiresIn: 60*60 };
+        const token = jwt.sign(user, process.env.JWT_SECRET, config);
         return res.send(token).status(200);
 
     } catch (error) {
-        console.log(error);
         res.sendStatus(500);
     }
 }
