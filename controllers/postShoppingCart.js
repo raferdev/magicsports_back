@@ -4,14 +4,14 @@ async function postShoppingCart(req, res) {
   const authorization = req.headers.authorization;
   const filteredToken = authorization.replace("Bearer", "").trim();
   const product = req.product;
-
+  console.log(product)
   try {
     const dados = jwt.verify(filteredToken, process.env.JWT_SECRET);
     const email = dados.email;
 
     await db
       .collection("shopping")
-      .updateMany({ email }, { $push: { cart: { product } } });
+      .updateMany({ email }, { $push: { cart: { ...product } } });
   } catch (e) {
     res.sendStatus(500);
   }
