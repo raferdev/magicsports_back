@@ -2,12 +2,8 @@ import jwt from "jsonwebtoken";
 import db from "../database/db.js";
 
 async function shoppingCartController(req, res) {
-  
-  const authorization = req.headers.authorization;
-  const filteredToken = authorization.replace("Bearer", "").trim();
   try {
-    const dados = jwt.verify(filteredToken, process.env.JWT_SECRET);
-    const email = dados.email;
+    const email = res.locals.user.email;
     const shoppingCarts = await db.collection("shopping").findOne({ email });
     const carts = [...shoppingCarts.cart];
 
