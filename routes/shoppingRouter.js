@@ -7,7 +7,8 @@ import tokenValidation from "../middlewares/tokenVerifyMiddleware.js";
 
 const shoppingRouter = express.Router();
 
-shoppingRouter.get("/shopping-cart",shoppingCartController)
-shoppingRouter.post("/shopping-cart",findProductMiddleware,postShoppingCart)
-shoppingRouter.delete("/shopping-cart",deleteShoppingCart)
+shoppingRouter.get("/shopping-cart",tokenValidation,shoppingCartController)
+shoppingRouter.post("/shopping-cart",tokenValidation,findProductMiddleware,postShoppingCart)
+shoppingRouter.delete("/shopping-cart",tokenValidation,deleteShoppingCart)
+
 export default shoppingRouter;

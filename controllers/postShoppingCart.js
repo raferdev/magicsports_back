@@ -1,14 +1,10 @@
 import db from "../database/db.js";
 
 async function postShoppingCart(req, res) {
-  const authorization = req.headers.authorization;
-  const filteredToken = authorization.replace("Bearer", "").trim();
   const product = req.product;
+  const email = res.locals.user.email;
   console.log(product)
   try {
-    const dados = jwt.verify(filteredToken, process.env.JWT_SECRET);
-    const email = dados.email;
-
     await db
       .collection("shopping")
       .updateMany({ email }, { $push: { cart: { ...product } } });

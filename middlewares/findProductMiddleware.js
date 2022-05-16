@@ -4,6 +4,7 @@ async function findProductMiddleware(req, res, next) {
   const id = req.query.id;
   try {
     const product = await db.collection("products").findOne({ id });
+    console.log(product)
     if(product) {
         req.product = product
     } else {
