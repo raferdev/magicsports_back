@@ -15,7 +15,7 @@ async function shoppingCartController(req, res) {
   } catch (e) {
 
     res.sendStatus(500);
-    
+
   }
 }
 export default shoppingCartController;
