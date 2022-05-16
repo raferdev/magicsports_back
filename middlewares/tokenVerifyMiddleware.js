@@ -7,8 +7,8 @@ async function tokenValidation (req, res, next) {
     }
     const filteredToken = token.replace("Bearer", "").trim();
     try {
-        jwt.verify(filteredToken, process.env.JWT_SECRET);
-
+        const user = jwt.verify(filteredToken, process.env.JWT_SECRET);
+        res.locals.user = user;
     } catch (error) {
         return res.sendStatus(400);
     }

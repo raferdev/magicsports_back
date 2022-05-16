@@ -8,7 +8,8 @@ function signInValidation (req, res, next) {
 
     const validation = signInSchema.validate(req.body, { abortEarly: false });
     if (validation.error) {
-        return res.send(validation.error.details).status(400);
+        console.log(validation.error);
+        return res.sendStatus(400);
     }
 
     next();
