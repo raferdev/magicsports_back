@@ -13,7 +13,7 @@ async function tokenValidation (req, res, next) {
         return res.sendStatus(400);
     }
 
-    // next();
+    next();
 }  
 
 export default tokenValidation;

@@ -28,9 +28,7 @@ async function checkoutValidation (req, res, next) {
         return res.sendStatus(422);
     }
 
-    console.log("deu bom")
-
-    // next();
+    next();
 }
 
 export default checkoutValidation;
