@@ -13,6 +13,6 @@ const productsRoute = express.Router();
 productsRoute.get("/products", getProducts);
 productsRoute.get("/products/:id", getProduct);
 productsRoute.post("/newprod", tokenValidation, addProd);
-productsRoute.post("/checkout", tokenValidation, checkoutValidation, checkout);
+productsRoute.post("/checkout", checkoutValidation, checkout);
 
 export default productsRoute;

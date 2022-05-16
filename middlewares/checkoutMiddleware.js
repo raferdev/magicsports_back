@@ -1,7 +1,7 @@
 import joi from "joi";
 
 async function checkoutValidation (req, res, next) {
-    if (!req.body.billingAdress || !req.body.payment || !req.body.purchase) {
+    if (!req.body.billingAdress || !req.body.payment || !req.body.purchase || req.body.purchase.length === 0) {
         return res.sendStatus(422);
     }
 
@@ -13,21 +13,24 @@ async function checkoutValidation (req, res, next) {
 
     const paymentSchema = joi.object({
         CCNumber: joi.string().length(16).pattern(/^[0-9]{16}$/).required(),
-        name: joi.string().required(),
+        CCOwner: joi.string().required(),
         CPF: joi.string().length(11).pattern(/^[0-9]{11}$/).required(),
         telephone: joi.string().length(12).pattern(/^[0-9]{12}$/).required(),
-        CCSecurityCode: joi.string().length(3).pattern(/^[0-9]{3}$/).required()
+        CCSecurityCode: joi.string().length(3).pattern(/^[0-9]{3}$/).required(),
+        CCExpirationDate: joi.date().required()
     }).unknown(true);
 
-    const adressValidation = adressSchema.validate(req.body.billingAdress);
-    const paymentValidation = paymentSchema.validate(req.body.payment);
+    const adressValidation = adressSchema.validate(req.body.billingAdress, { abortEarly: false });
+    const paymentValidation = paymentSchema.validate(req.body.payment, { abortEarly: false });
 
     if (adressValidation.error || paymentValidation.error) {
-        console.log(adressValidation.error)
-        return res.sendStatus(400);
+        console.log(paymentValidation.error)
+        return res.sendStatus(422);
     }
 
-    next();
+    console.log("deu bom")
+
+    // next();
 }
 
 export default checkoutValidation;
