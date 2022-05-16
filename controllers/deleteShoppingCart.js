@@ -12,7 +12,7 @@ async function deleteShoppingCart(req, res) {
 
     await db
       .collection("shopping")
-      .updateOne({ email }, { $pull: { "cart": { id } }});
+      .updateMany({ email }, { $pull: { "cart": { id } }}, {multi:true});
 
     res.sendStatus(201);
   } catch (e) {
