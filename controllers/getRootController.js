@@ -1,3 +1,5 @@
+import jwt from "jsonwebtoken";
+
 async function getRootController(req,res) {
     const authorization = req.headers.authorization;
     const filteredToken = authorization.replace("Bearer", "").trim();
