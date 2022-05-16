@@ -1,6 +1,6 @@
 import db from "../database/db.js";
 import bcrypt from "bcrypt";
-export default async function postSignUp(req, res) {
+async function postSignUp(req, res) {
   const { name, email, password } = req.body;
   const passHash = bcrypt.hashSync(password, 10);
   try {
@@ -19,3 +19,4 @@ export default async function postSignUp(req, res) {
     res.sendStatus(500);
   }
 }
+export default postSignUp;
