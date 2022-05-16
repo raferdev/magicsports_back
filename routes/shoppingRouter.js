@@ -8,6 +8,6 @@ import tokenValidation from "../middlewares/tokenVerifyMiddleware.js";
 const shoppingRouter = express.Router();
 
 shoppingRouter.get("/shopping-cart",shoppingCartController)
-shoppingRouter.post("shopping-cart",findProductMiddleware,postShoppingCart)
+shoppingRouter.post("/shopping-cart",findProductMiddleware,postShoppingCart)
 shoppingRouter.delete("/shopping-cart",deleteShoppingCart)
 export default shoppingRouter;
