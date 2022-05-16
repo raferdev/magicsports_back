@@ -8,7 +8,11 @@ async function shoppingCartController(req, res) {
     const dados = jwt.verify(filteredToken, process.env.JWT_SECRET);
     const email = dados.email;
     const shoppingCarts = await db.collection("shopping").findOne({ email });
-    res.send(shoppingCarts.cart);
+    const carts = JSON.parse(shoppingCarts.cart);
+    if (carts.length > 0) {
+      return res.send(carts);
+    }
+    return res.send(carts);
   } catch (e) {
     res.sendStatus(500);
   }
