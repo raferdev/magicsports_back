@@ -9,10 +9,11 @@ async function deleteShoppingCart(req, res) {
   try {
     const dados = jwt.verify(filteredToken, process.env.JWT_SECRET);
     const email = dados.email;
-
+    console.log(email);
+    console.log(id);
     await db
       .collection("shopping")
-      .update({ email }, { $pull: { cart: { id } }});
+      .updateMany({ email }, { $pull: { cart: { id } } }, { multi: true });
 
     res.sendStatus(201);
   } catch (e) {
