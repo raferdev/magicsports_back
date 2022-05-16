@@ -10,7 +10,7 @@ async function deleteShoppingCart(req, res) {
     const email = dados.email;
     await db
       .collection("shopping")
-      .update({ email }, { "$pull": { "cart": { "id":id.toString() } } }, { multi: true });
+      .updateMany({ email }, { "$pull": { "cart": { "id":id.toString() } } }, { multi: true });
     res.sendStatus(201);
   } catch (e) {
     res.sendStatus(500);
