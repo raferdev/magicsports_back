@@ -6,7 +6,7 @@ async function postShoppingCart(req, res) {
   try {
     await db
       .collection("shopping")
-      .updateOne({ email }, { $push: { cart: {product}  } });
+      .updateOne({ email }, { $push: { cart: product  } });
   } catch (e) {
     res.sendStatus(500);
   }
