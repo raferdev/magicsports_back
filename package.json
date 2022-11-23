@@ -1,24 +1,33 @@
 {
-  "name": "projeto14-ecommerce-back",
+  "name": "magicsports-back",
   "type": "module",
-  "version": "1.0.0",
-  "description": "\"e-commerce back-end\"",
+  "version": "1.1.0",
   "main": "index.js",
+  "description": "This is one Web Market, backend part of Fullstack project, that user can shop sport items.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raferdev/MAGICSPORTS-back.git"
+  },
+  "keywords": [
+    "Node",
+    "NodeJS",
+    "Express",
+    "Docker",
+    "MongoDB",
+    "Docker-Compose",
+    "Backend"
+  ],
+  "author": "raferdev@outlook.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raferdev/MAGICSPORTS-back/issues"
+  },  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx nodemon index.js",
-    "start": "node ./index.js"
+    "start": "docker-compose up",
+    "build":"docker-compose up --build"
 },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rafael-f/projeto14-ecommerce-back.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rafael-f/projeto14-ecommerce-back/issues"
-  },
-  "homepage": "https://github.com/rafael-f/projeto14-ecommerce-back#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "chalk": "^5.0.1",
