@@ -12,9 +12,13 @@ async function deleteShoppingCart(req, res) {
 
     await db
       .collection("shopping")
-      .updateMany({ email }, { $pull: { "cart": { "id":parseInt(id) } } },{multi:false});
+      .updateMany(
+        { email },
+        { $pull: { cart: { id: parseInt(id) } } },
+        { multi: false }
+      );
 
-    res.sendStatus(201);
+    res.sendStatus(200);
   } catch (e) {
     res.sendStatus(500);
   }

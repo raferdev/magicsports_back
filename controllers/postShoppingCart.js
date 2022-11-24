@@ -6,9 +6,10 @@ async function postShoppingCart(req, res) {
   try {
     await db
       .collection("shopping")
-      .updateOne({ email }, { $push: { cart: product  } });
+      .updateOne({ email }, { $push: { cart: product } });
+    return res.sendStatus(200);
   } catch (e) {
-    res.sendStatus(500);
+    return res.sendStatus(500);
   }
 }
 export default postShoppingCart;
