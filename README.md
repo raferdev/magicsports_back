@@ -33,7 +33,7 @@ This is a backend part of FullStack project. The frontend you can see <a href="h
 
 ## 🧐 About <a name = "about"></a>
 
-This project was built on one week and encrease my consepts about javascript enviroment, using ReactJS, and NodeJS to create one web app completly. This frontend simulate one e-commerce. User can see all products without account, and can register youself if want to save your list on shopping cart.<a href="https://github.com/raferdev/MAGICSports-front">(backend)</a>.
+This project was built on one week and encrease my consepts about javascript enviroment, using ReactJS, and NodeJS to create one web app completly. This backend simulate one e-commerce API. User can see all products without account, and can register youself if want to save your list on cart list.<a href="https://github.com/raferdev/MAGICSports-front">(frontend)</a>.
 
 ---
 
